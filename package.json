@@ -6,9 +6,10 @@
     "name": "Jordan Wade",
     "email": "jjwade31@gmail.com"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jordanwade/react-embed-widget"
+    "url": "https://github.com/jordanwade/react-embed-widget.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
