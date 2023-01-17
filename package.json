@@ -11,9 +11,6 @@
     "type": "git",
     "url": "https://github.com/jordanwade/react-embed-widget.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "dependencies": {
     "@craco/craco": "^6.1.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
