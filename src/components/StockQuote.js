@@ -16,32 +16,26 @@ function StockQuote(props) {
     name: 'N/A',
   });
 
-  // useEffect(() => {
-  //   axiosInstance
-  //     .get(MARKET_STACK_QUOTE_URL, {
-  //       params: {
-  //         access_key: process.env.REACT_APP_MARKETSTACK_ACCESS_KEY,
-  //         symbols: props.symbol,
-  //         interval: '15min',
-  //         date_from: moment()
-  //           .subtract(1, 'day')
-  //           .format('YYYY-MM-DD'),
-  //         date_to: moment().format('YYYY-MM-DD'),
-  //         limit: '1',
-  //       },
-  //     })
-  //     .then(result => {
-  //       if (!result.data.data || result.data.data.length <= 0) {
-  //         return;
-  //       }
-  //       const lastQuote = result.data.data[0];
-  //       setQuote({
-  //         price: lastQuote.last,
-  //         var: Math.trunc(-(1 - lastQuote.last / lastQuote.open) * 10000) / 100,
-  //         time: moment(lastQuote.date).format('YYYY-MM-DD HH:mm'),
-  //       });
-  //     });
-  // });
+  useEffect(() => {
+    axiosInstance
+      .get(MARKET_STACK_QUOTE_URL, {
+        params: {
+          access_key: process.env.REACT_APP_MARKETSTACK_ACCESS_KEY,
+          symbols: props.symbol,
+        },
+      })
+      .then((result) => {
+        if (!result.data.data || result.data.data.length <= 0) {
+          return;
+        }
+        const lastQuote = result.data.data[0];
+        setQuote({
+          price: lastQuote.last,
+          var: Math.trunc(-(1 - lastQuote.last / lastQuote.open) * 10000) / 100,
+          time: moment(lastQuote.date).format('YYYY-MM-DD HH:mm'),
+        });
+      });
+  });
 
   useEffect(() => {
     axiosInstance
@@ -50,7 +44,7 @@ function StockQuote(props) {
           access_key: process.env.REACT_APP_MARKETSTACK_ACCESS_KEY,
         },
       })
-      .then(result => {
+      .then((result) => {
         if (!result.data) {
           return;
         }
@@ -67,6 +61,12 @@ function StockQuote(props) {
     <div className={'quote rounded-lg shadow-md p-4 bg-gray-800'}>
       <span className={'quoteSymbol text-sm text-white font-bold'}>
         {props.symbol}
+      </span>
+      <span className={'quoteSymbol text-sm text-white font-bold'}>
+        {props.church}
+      </span>
+      <span className={'quoteSymbol text-sm text-white font-bold'}>
+        {props.type}
       </span>
       <span className={'quoteSymbol text-2xs text-gray-400 ml-1'}>
         {stock.name}
