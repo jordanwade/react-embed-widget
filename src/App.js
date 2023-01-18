@@ -6,7 +6,7 @@ const WidgetComponentMap = {
   StockQuote,
 };
 
-function App(...props) {
+function App(props) {
   // Lookup the component responsible for rendering this Widget
   const WidgetComponent = WidgetComponentMap[props.type];
 
