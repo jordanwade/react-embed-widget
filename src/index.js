@@ -12,13 +12,17 @@ const axiosInstance = axios.create({
 export default axiosInstance;
 
 // Find all widget divs
-const widgetDivs = document.querySelectorAll('.finance-widget');
+const widgetDivs = document.querySelectorAll('.apollos-widget');
 
 // Inject our React App into each class
-widgetDivs.forEach(div => {
+widgetDivs.forEach((div) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App symbol={div.dataset.symbol} />
+      <App
+        symbol={div.dataset.symbol}
+        type={div.dataset.type}
+        church={div.dataset.church}
+      />
     </React.StrictMode>,
     div
   );
