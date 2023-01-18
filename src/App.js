@@ -1,9 +1,11 @@
 import React from 'react';
-import { StockQuote } from './components';
+import { StockQuote, FeatureFeed, Auth } from './components';
 
 // Maps a widget name to a Component to render it.
 const WidgetComponentMap = {
   StockQuote,
+  FeatureFeed,
+  Auth,
 };
 
 function App(props) {

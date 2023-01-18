@@ -1,3 +1,5 @@
+import Auth from './Auth';
+import FeatureFeed from './FeatureFeed';
 import StockQuote from './StockQuote';
 
-export { StockQuote };
+export { Auth, FeatureFeed, StockQuote };
