@@ -1,5 +1,3 @@
-import Auth from './Auth';
-import FeatureFeed from './FeatureFeed';
-import StockQuote from './StockQuote';
+import Feed from './Feed';
 
-export { Auth, FeatureFeed, StockQuote };
+export { Feed };

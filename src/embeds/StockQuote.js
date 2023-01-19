@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import moment from 'moment';
-import axiosInstance from './../index';
-
-const MARKET_STACK_QUOTE_URL = `${process.env.REACT_APP_MARKETSTACK_BASE_URL}/intraday`;
-const MARKET_STACK_TICKER_URL = `${process.env.REACT_APP_MARKETSTACK_BASE_URL}/tickers`;
+import React, { useState } from 'react';
 
 function StockQuote(props) {
   const [quote, setQuote] = useState({
@@ -14,45 +9,6 @@ function StockQuote(props) {
   const [stock, setStock] = useState({
     stockExchange: 'N/A',
     name: 'N/A',
-  });
-
-  useEffect(() => {
-    axiosInstance
-      .get(MARKET_STACK_QUOTE_URL, {
-        params: {
-          access_key: process.env.REACT_APP_MARKETSTACK_ACCESS_KEY,
-          symbols: props.symbol,
-        },
-      })
-      .then((result) => {
-        if (!result.data.data || result.data.data.length <= 0) {
-          return;
-        }
-        const lastQuote = result.data.data[0];
-        setQuote({
-          price: lastQuote.last,
-          var: Math.trunc(-(1 - lastQuote.last / lastQuote.open) * 10000) / 100,
-          time: moment(lastQuote.date).format('YYYY-MM-DD HH:mm'),
-        });
-      });
-  });
-
-  useEffect(() => {
-    axiosInstance
-      .get(`${MARKET_STACK_TICKER_URL}/${props.symbol}`, {
-        params: {
-          access_key: process.env.REACT_APP_MARKETSTACK_ACCESS_KEY,
-        },
-      })
-      .then((result) => {
-        if (!result.data) {
-          return;
-        }
-        setStock({
-          stockExchange: result.data.stock_exchange.acronym,
-          name: result.data.name,
-        });
-      });
   });
 
   const varColor = quote.var < 0 ? 'text-red-500' : 'text-green-500';
