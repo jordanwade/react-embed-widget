@@ -1,5 +1,6 @@
 import React from 'react';
-import { StockQuote, FeatureFeed, Auth } from './components';
+import { StockQuote, FeatureFeed, Auth } from './embeds';
+import { AppProvider } from './providers';
 
 // Maps a widget name to a Component to render it.
 const WidgetComponentMap = {
@@ -14,7 +15,11 @@ function App(props) {
 
   // Widgets require a church slug to get the correct data
   if (WidgetComponent && props.church) {
-    return <WidgetComponent symbol={props.symbol} church={props.church} />;
+    return (
+      <AppProvider>
+        <WidgetComponent symbol={props.symbol} church={props.church} />
+      </AppProvider>
+    );
   }
 
   // eslint-disable-next-line no-console
