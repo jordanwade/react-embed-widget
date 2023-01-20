@@ -28,6 +28,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "^5.0.1",
+    "styled-components": "^5.3.6",
+    "styled-system": "^5.1.5",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "web-vitals": "^0.2.4"
   },
