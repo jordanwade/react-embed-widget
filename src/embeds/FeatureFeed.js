@@ -4,18 +4,15 @@ import { Feed } from '../components';
 
 const FeatureFeed = (props) => {
   return (
-    <div>
-      <p>This is a FeatureFeed embed for {props.church} church</p>
-      <TabFeedProvider
-        Component={Feed}
-        options={{
-          variables: {
-            tab: 'TV',
-          },
-        }}
-        {...props}
-      />
-    </div>
+    <TabFeedProvider
+      Component={Feed}
+      options={{
+        variables: {
+          tab: 'TV',
+        },
+      }}
+      {...props}
+    />
   );
 };
 
