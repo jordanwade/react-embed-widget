@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import { ApolloProvider } from '@apollo/client';
 
 import client from '../client';
+import { ThemeProvider } from '../ui-kit';
+import BreakpointProvider from './BreakpointProvider';
 
 function AppProvider(props = {}) {
   return (
     <ApolloProvider client={client} {...props}>
-      {props.children}
+      <BreakpointProvider>
+        <ThemeProvider>{props.children}</ThemeProvider>
+      </BreakpointProvider>
     </ApolloProvider>
   );
 }
