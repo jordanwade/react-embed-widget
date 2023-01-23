@@ -1,5 +1,4 @@
-import { Platform } from 'react-native';
-import styled, { css } from 'styled-components/native';
+import styled, { css } from 'styled-components';
 import { withTheme } from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
