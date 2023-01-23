@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import isNil from 'lodash';
 
-import { apollosPropTypes } from '../../config/apollosPropTypes';
+import { apollosPropTypes } from '../../config';
 import { Box, Loader } from '../../ui-kit';
 
 import FeatureFeedComponentMap from './FeatureFeedComponentMap';
@@ -53,10 +54,9 @@ const Feed = (props) => {
   }
 
   const features = props.data?.features;
-
-  const isNil = (val) => val == null;
+  console.log(props);
   const renderedFeatures = features?.map(renderFeature).filter(isNil);
-
+  console.log(renderedFeatures);
   if (props.error || !renderedFeatures || !renderedFeatures.length) {
     return (
       <Box

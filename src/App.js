@@ -1,10 +1,9 @@
 import React from 'react';
-import { StockQuote, FeatureFeed, Auth } from './embeds';
+import { FeatureFeed, Auth } from './embeds';
 import { AppProvider } from './providers';
 
 // Maps a widget name to a Component to render it.
 const WidgetComponentMap = {
-  StockQuote,
   FeatureFeed,
   Auth,
 };

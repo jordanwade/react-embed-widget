@@ -1,3 +1,3 @@
-import Feed from './FeatureFeed';
+import Feed from './Feed';
 
 export default Feed;
