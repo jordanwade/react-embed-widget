@@ -16,23 +16,22 @@ const shared = css`
 
 // :: Headings
 const H1 = () => css`
-  font-size: ${utils.rem('56px')};
-  line-height: ${utils.rem('64px')};
+  font-size: ${utils.rem('43px')};
+  line-height: ${utils.rem('56px')};
   font-weight: 800;
   ${shared}
 `;
 
 const H2 = () => css`
-  font-size: ${utils.rem('38px')};
-  line-height: ${utils.rem('42px')};
+  font-size: ${utils.rem('36px')};
+  line-height: ${utils.rem('40px')};
   font-weight: 700;
-  margin-bottom: ${themeGet('space.xxs')};
   ${shared}
 `;
 
 const H3 = () => css`
-  font-size: ${utils.rem('26px')};
-  line-height: ${utils.rem('32px')};
+  font-size: ${utils.rem('24px')};
+  line-height: ${utils.rem('28px')};
   font-weight: 700;
   ${shared}
 `;
@@ -46,14 +45,14 @@ const H4 = () => css`
 
 const H5 = () => css`
   font-size: ${utils.rem('16px')};
-  line-height: ${utils.rem('21px')};
+  line-height: ${utils.rem('24px')};
   font-weight: 500;
   ${shared}
 `;
 
 const H6 = () => css`
   font-size: ${utils.rem('14px')};
-  line-height: ${utils.rem('18px')};
+  line-height: ${utils.rem('21px')};
   font-weight: 600;
   ${shared}
 `;
