@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const VIDEO_MEDIA_FIELDS = gql`
+const VIDEO_MEDIA_FIELDS = gql`
   fragment VideoMediaFields on VideoMedia {
     __typename
     id
@@ -17,3 +17,5 @@ export const VIDEO_MEDIA_FIELDS = gql`
     embedHtml
   }
 `;
+
+export { VIDEO_MEDIA_FIELDS };

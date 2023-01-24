@@ -1,3 +1,3 @@
-import * as Fragments from './fragments';
+import { VIDEO_MEDIA_FIELDS } from './fragments';
 
-export { Fragments };
+export { VIDEO_MEDIA_FIELDS };

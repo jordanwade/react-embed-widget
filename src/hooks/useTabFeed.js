@@ -1,8 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
-import { Fragments } from '../fragments';
+import { VIDEO_MEDIA_FIELDS } from '../fragments';
 
 export const TAB_FEED_FEATURES = gql`
-  ${Fragments.VIDEO_MEDIA_FIELDS}
+  ${VIDEO_MEDIA_FIELDS}
 
   query tabFeed($tab: Tab!) {
     tabFeedFeatures(tab: $tab) {
