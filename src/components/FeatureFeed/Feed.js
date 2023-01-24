@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import isNil from 'lodash';
 
-import { apollosPropTypes } from '../../config';
 import { Box, Loader } from '../../ui-kit';
 
 import FeatureFeedComponentMap from './FeatureFeedComponentMap';
@@ -80,7 +79,6 @@ const Feed = (props) => {
 
 Feed.propTypes = {
   loading: PropTypes.bool,
-  data: apollosPropTypes.FeatureFeed,
   // eslint-disable-next-line react/forbid-prop-types
   error: PropTypes.object,
 };

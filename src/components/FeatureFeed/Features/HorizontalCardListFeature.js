@@ -4,7 +4,6 @@ import React from 'react';
 
 // import { getURLFromType } from '../../utils';
 import { Box, H3, systemPropTypes } from '../../../ui-kit';
-import { apollosPropTypes } from '../../../config';
 
 function HorizontalCardListFeature(props = {}) {
   //   const router = useNavigation();
@@ -28,7 +27,6 @@ function HorizontalCardListFeature(props = {}) {
 
 HorizontalCardListFeature.propTypes = {
   ...systemPropTypes,
-  feature: apollosPropTypes.HorizontalCardListFeature,
 };
 
 export default HorizontalCardListFeature;

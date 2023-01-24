@@ -4,18 +4,10 @@ import { withTheme } from 'styled-components';
 // import { useNavigation } from '../../router';
 // import { getURLFromType } from '../../../utils';
 
-import { useBreakpoint } from '../../../providers/BreakpointProvider';
-import { apollosPropTypes } from '../../../config';
 import { Box, Button, H1, H2, H3, H4, systemPropTypes } from '../../../ui-kit';
 
 function HeroListFeature(props = {}) {
   // const router = useNavigation();
-  const { responsive } = useBreakpoint();
-
-  // Responsive values
-  const outerPadding = responsive({ _: 'base', lg: 'xl' });
-  const HeadingComponent = responsive({ _: H3, md: H2, lg: H1 });
-  const SummaryComponent = responsive({ _: H4, md: H3 });
 
   // // Event Handlers
   // const handleWatchNowPress = () => {
@@ -47,10 +39,8 @@ function HeroListFeature(props = {}) {
         />
         {/* Masthead */}
         <Box padding="20px">
-          <HeadingComponent>{props.feature.heroCard.title}</HeadingComponent>
-          <SummaryComponent fontWeight="400">
-            {props.feature.heroCard.summary}
-          </SummaryComponent>
+          <H3>{props.feature.heroCard.title}</H3>
+          <H4 fontWeight="400">{props.feature.heroCard.summary}</H4>
 
           {/* CTAs */}
           <Box
@@ -84,7 +74,7 @@ function HeroListFeature(props = {}) {
                 justifyContent="space-between"
                 alignItems="flex-end"
                 mb="s"
-                px={outerPadding}
+                px="base"
               >
                 <Box>
                   <H4 color="text.secondary">{props.feature.subtitle}</H4>
@@ -101,7 +91,6 @@ function HeroListFeature(props = {}) {
 
 HeroListFeature.propTypes = {
   ...systemPropTypes,
-  feature: apollosPropTypes.HeroListFeature,
 };
 
 export default withTheme(HeroListFeature);
