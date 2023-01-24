@@ -27,3 +27,4 @@ yarn-error.log*
 .npmrc
 .cache
 .eslintcache
+.parcel-cache
