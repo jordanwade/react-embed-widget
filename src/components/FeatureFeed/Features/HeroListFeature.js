@@ -1,35 +1,44 @@
 import React from 'react';
 import { withTheme } from 'styled-components';
 
-// import { useNavigation } from '../../router';
-// import { getURLFromType } from '../../../utils';
+import { useNavigate } from 'react-router-dom';
+import { getURLFromType } from '../../../utils';
 
-import { Box, Button, H1, H2, H3, H4, systemPropTypes } from '../../../ui-kit';
+import {
+  BodyText,
+  Box,
+  Button,
+  H1,
+  H2,
+  H3,
+  H4,
+  systemPropTypes,
+} from '../../../ui-kit';
 
 function HeroListFeature(props = {}) {
-  // const router = useNavigation();
+  const navigate = useNavigate();
 
-  // // Event Handlers
+  // Event Handlers
   // const handleWatchNowPress = () => {
-  //   router.push(getURLFromType(props.feature.heroCard.relatedNode));
+  // navigate(getURLFromType(props.feature?.heroCard?.relatedNode));
   // };
 
-  // const handlePrimaryActionClick = () => {
-  //   router.push(
-  //     getURLFromType(
-  //       props.feature.primaryAction.relatedNode,
-  //       props.feature.primaryAction.title
-  //     )
-  //   );
-  // };
+  const handlePrimaryActionClick = () => {
+    navigate(
+      getURLFromType(
+        props.feature.primaryAction.relatedNode,
+        props.feature.primaryAction.title
+      )
+    );
+  };
 
   return (
     <Box {...props}>
       {/* Content */}
       <Box
         position="relative"
-        backgroundColor="#323233"
-        borderRadius="20px"
+        backgroundColor="material.regular"
+        borderRadius="l"
         overflow="hidden"
       >
         {/* Image */}
@@ -38,9 +47,13 @@ function HeroListFeature(props = {}) {
           width="100%"
         />
         {/* Masthead */}
-        <Box padding="20px">
+        <Box
+          padding="base"
+          background="material.regular"
+          backdrop-filter="blur(64px)"
+        >
           <H3>{props.feature.heroCard.title}</H3>
-          <H4 fontWeight="400">{props.feature.heroCard.summary}</H4>
+          <BodyText>{props.feature.heroCard.summary}</BodyText>
 
           {/* CTAs */}
           <Box
@@ -50,14 +63,14 @@ function HeroListFeature(props = {}) {
             mt="base"
           >
             <Button
-              mr="8px"
+              mr="base"
               title="Watch now"
               // onPress={handleWatchNowPress}
             />
             {props.feature.primaryAction ? (
               <Button
                 title={props.feature.primaryAction.title}
-                // onPress={handlePrimaryActionClick}
+                onClick={handlePrimaryActionClick}
                 type="secondary"
               />
             ) : null}
