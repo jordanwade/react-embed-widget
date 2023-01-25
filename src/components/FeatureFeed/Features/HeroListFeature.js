@@ -24,12 +24,10 @@ function HeroListFeature(props = {}) {
   // };
 
   const handlePrimaryActionClick = () => {
-    navigate(
-      getURLFromType(
-        props.feature.primaryAction.relatedNode,
-        props.feature.primaryAction.title
-      )
-    );
+    navigate({
+      pathname: '/',
+      search: `?id=${getURLFromType(props.feature.primaryAction.relatedNode)}`,
+    });
   };
 
   return (
