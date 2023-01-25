@@ -1,4 +1,5 @@
 import AppProvider from './AppProvider';
 import TabFeedProvider from './TabFeedProvider';
+import ContentItemProvider from './ContentItemProvider';
 
-export { AppProvider, TabFeedProvider };
+export { AppProvider, TabFeedProvider, ContentItemProvider };
