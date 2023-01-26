@@ -4,47 +4,36 @@ import DOMPurify from 'dompurify';
 import format from 'date-fns/format';
 import addMinutes from 'date-fns/addMinutes';
 
-import { apollosPropTypes } from 'shared/lib';
-import { useNavigation } from 'shared/router';
-import { getURLFromType } from 'shared/utils';
-import { GET_CONTENT_ITEM } from 'shared/hooks/useContentItem';
+// import { useNavigation } from 'shared/router';
+// import { getURLFromType } from 'shared/utils';
 
-import {
-  FeatureFeed,
-  InteractWhenLoaded,
-  TrackEventWhenLoaded,
-} from 'shared/components';
+import FeatureFeed from './FeatureFeed';
 import {
   Box,
-  ContentItemCard,
+  // ContentItemCard,
   H2,
   H4,
   Loader,
   Longform,
   utils,
   Button,
-} from 'shared/ui-kit';
-import VideoPlayer from 'shared/components/VideoPlayer';
+} from '../ui-kit';
+import VideoPlayer from './VideoPlayer';
 
-import { SEO, CardCarousel } from 'tvappweb/components';
-
-function getItemId(slug) {
-  const id = slug.split('-').pop();
-  return `WeekendContentItem:${id}`;
-}
+// import { CardCarousel } from 'tvappweb/components';
 
 const DEFAULT_CONTENT_WIDTH = utils.rem('1280px');
 
 function ContentSingle(props = {}) {
-  const router = useNavigation();
+  // const router = useNavigation();
 
   const invalidPage = !props.loading && !props.data;
 
-  useEffect(() => {
-    if (invalidPage) {
-      router.push('/');
-    }
-  }, [invalidPage, router]);
+  // useEffect(() => {
+  //   if (invalidPage) {
+  //     router.push('/');
+  //   }
+  // }, [invalidPage, router]);
 
   if (props.loading || invalidPage) {
     return (
@@ -65,7 +54,8 @@ function ContentSingle(props = {}) {
   const edges = props?.data?.childContentItemsConnection?.edges;
   const htmlContent = props?.data?.htmlContent;
   const title = props?.data?.title;
-  const publishDate = new Date(props?.data?.publishDate);
+  const publishDate = new Date(parseInt(props?.data?.publishDate));
+
   const formatedPublishDate = props?.data?.publishDate
     ? format(
         addMinutes(publishDate, publishDate.getTimezoneOffset()),
@@ -76,46 +66,18 @@ function ContentSingle(props = {}) {
   const sanitizedHTML = DOMPurify.sanitize(htmlContent);
 
   const handleActionPress = (node) => {
-    router.push(getURLFromType(node));
-  };
-
-  const handleGoBack = () => {
-    router.push('/');
+    // router.push(getURLFromType(node));
   };
 
   return (
     <>
-      <SEO
-        description={htmlContent}
-        image={coverImage?.sources[0]?.uri}
-        title={title}
-        url={typeof window !== 'undefined' ? window.location.href : undefined}
-      />
-      <InteractWhenLoaded
-        loading={props.loading}
-        nodeId={props.data?.id}
-        action={'COMPLETE'}
-      />
-      <TrackEventWhenLoaded
-        loading={props.loading}
-        eventName={'View Content'}
-        properties={{
-          itemId: props.data?.id,
-          parentId: props.data?.parentChannel?.id,
-          parentName: props.data?.parentChannel?.name,
-          publishDate,
-          title,
-        }}
-      />
-      <Box width="100%" maxWidth={props.contentMaxWidth} margin="0 auto">
+      <Box
+        width="100%"
+        maxWidth={props.contentMaxWidth}
+        margin="0 auto"
+        backgroundColor="material.regular"
+      >
         <Box mb="l">
-          <Button
-            py="xs"
-            title="← Back"
-            type="link"
-            onClick={handleGoBack}
-            mb="xs"
-          />
           {props.data?.videos[0]?.embedHtml ? (
             <VideoPlayer
               dangerouslySetInnerHTML={props.data?.videos[0]?.embedHtml}
@@ -142,7 +104,7 @@ function ContentSingle(props = {}) {
 
         {edges?.length > 0 ? (
           <Box mb="l">
-            <CardCarousel
+            {/* <CardCarousel
               data={edges}
               peek={false}
               iconSize="42px"
@@ -154,13 +116,13 @@ function ContentSingle(props = {}) {
                   onPress={() => handleActionPress(item.node)}
                 />
               )}
-            />
+            /> */}
           </Box>
         ) : null}
 
-        {props?.data?.featureFeed?.features && (
+        {props.data?.featureFeed?.features.length > 0 ? (
           <FeatureFeed data={props?.data?.featureFeed} />
-        )}
+        ) : null}
       </Box>
     </>
   );
@@ -171,7 +133,7 @@ ContentSingle.propTypes = {
   data: PropTypes.shape({
     childContentItemsConnection: PropTypes.shape(),
     coverImage: PropTypes.shape({}),
-    featureFeed: apollosPropTypes.FeatureFeed,
+    featureFeed: PropTypes.shape({}),
     htmlContent: PropTypes.string,
     id: PropTypes.string,
     parentChannel: PropTypes.shape({
