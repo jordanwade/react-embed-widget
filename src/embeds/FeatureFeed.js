@@ -1,13 +1,17 @@
 import React from 'react';
-import { TabFeedProvider, ContentItemProvider } from '../providers';
-import { Feed, ContentSingle } from '../components';
+import {
+  TabFeedProvider,
+  ContentItemProvider,
+  FeatureFeedProvider,
+} from '../providers';
+import { Feed, ContentSingle, FeatureFeedList } from '../components';
 import { useSearchParams } from 'react-router-dom';
 
 const FeatureFeed = (props) => {
   const [searchParams] = useSearchParams();
   const _id = searchParams.get('id');
 
-  const [type, randomId] = _id?.split('-');
+  const [type, randomId] = _id?.split(/-(.*)/s) ?? [];
 
   switch (type) {
     case 'EventContentItem':
@@ -29,7 +33,14 @@ const FeatureFeed = (props) => {
     case 'Url': {
       return <h1>External Url</h1>;
     }
-    case 'FeatureFeed':
+    case 'FeatureFeed': {
+      const options = {
+        variables: { id: `${type}:${randomId}` },
+      };
+      return (
+        <FeatureFeedProvider Component={FeatureFeedList} options={options} />
+      );
+    }
     default: {
       return (
         <TabFeedProvider
