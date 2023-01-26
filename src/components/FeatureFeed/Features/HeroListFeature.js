@@ -19,10 +19,12 @@ function HeroListFeature(props = {}) {
   const navigate = useNavigate();
 
   // Event Handlers
-  // const handleWatchNowPress = () => {
-  // navigate(getURLFromType(props.feature?.heroCard?.relatedNode));
-  // };
-
+  const handleWatchNowPress = () => {
+    navigate({
+      pathname: '/',
+      search: `?id=${getURLFromType(props.feature?.heroCard?.relatedNode)}`,
+    });
+  };
   const handlePrimaryActionClick = () => {
     navigate({
       pathname: '/',
@@ -60,11 +62,7 @@ function HeroListFeature(props = {}) {
             flexDirection="row"
             mt="base"
           >
-            <Button
-              mr="base"
-              title="Watch now"
-              // onPress={handleWatchNowPress}
-            />
+            <Button mr="base" title="Watch now" onClick={handleWatchNowPress} />
             {props.feature.primaryAction ? (
               <Button
                 title={props.feature.primaryAction.title}
