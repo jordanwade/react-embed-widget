@@ -25,6 +25,7 @@ const Loader = withTheme(styled.div`
   align-items: center;
   display: flex;
   color: ${themeGet('colors.text.primary')};
+  height: 100vh;
 
   ${firstChildRule}
   ${center}
