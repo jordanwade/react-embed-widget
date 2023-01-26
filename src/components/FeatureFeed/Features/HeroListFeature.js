@@ -33,7 +33,7 @@ function HeroListFeature(props = {}) {
   };
 
   return (
-    <Box {...props}>
+    <Box mb="base" {...props}>
       {/* Content */}
       <Box
         position="relative"
