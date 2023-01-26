@@ -7,8 +7,9 @@ import ThemeProvider from './ThemeProvider';
 
 // UI Kit components
 import Box from './Box';
-import Loader from './Loader';
 import Button from './Button';
+import ContentCard from './ContentCard';
+import Loader from './Loader';
 import Longform from './Longform';
 
 import {
@@ -32,6 +33,7 @@ export {
   // ====================
   Box,
   Button,
+  ContentCard,
   Loader,
   Longform,
   // Typography
