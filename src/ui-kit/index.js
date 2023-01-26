@@ -9,6 +9,7 @@ import ThemeProvider from './ThemeProvider';
 import Box from './Box';
 import Loader from './Loader';
 import Button from './Button';
+import Longform from './Longform';
 
 import {
   BodyText,
@@ -32,6 +33,7 @@ export {
   Box,
   Button,
   Loader,
+  Longform,
   // Typography
   BodyText,
   H1,
