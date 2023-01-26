@@ -52,9 +52,8 @@ const Feed = (props) => {
   }
 
   const features = props.data?.features;
-  console.log(props);
   const renderedFeatures = features?.map(renderFeature);
-  console.log(renderedFeatures);
+
   if (props.error || !renderedFeatures || !renderedFeatures.length) {
     return (
       <Box
