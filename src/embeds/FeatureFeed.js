@@ -5,6 +5,7 @@ import {
   FeatureFeedProvider,
 } from '../providers';
 import { Feed, ContentSingle, FeatureFeedList } from '../components';
+import { Box } from '../ui-kit';
 import { useSearchParams } from 'react-router-dom';
 
 const FeatureFeed = (props) => {
@@ -43,15 +44,17 @@ const FeatureFeed = (props) => {
     }
     default: {
       return (
-        <TabFeedProvider
-          Component={Feed}
-          options={{
-            variables: {
-              tab: 'TV',
-            },
-          }}
-          {...props}
-        />
+        <Box padding="40px" backgroundColor="#323233">
+          <TabFeedProvider
+            Component={Feed}
+            options={{
+              variables: {
+                tab: 'TV',
+              },
+            }}
+            {...props}
+          />
+        </Box>
       );
     }
   }
