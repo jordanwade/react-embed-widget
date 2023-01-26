@@ -23,6 +23,8 @@
     "autoprefixer": "^9.8.6",
     "base-64": "^1.0.0",
     "color": "^4.2.3",
+    "date-fns": "^2.29.3",
+    "dompurify": "^2.4.3",
     "graphql": "^16.6.0",
     "moment": "^2.29.1",
     "postcss": "^7.0.39",
