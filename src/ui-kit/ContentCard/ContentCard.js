@@ -1,7 +1,13 @@
 import React from 'react';
 import { withTheme } from 'styled-components';
 
-import { BodyText, Box, H3, systemPropTypes } from '../../ui-kit';
+import {
+  BodyText,
+  SmallBodyText,
+  Box,
+  H4,
+  systemPropTypes,
+} from '../../ui-kit';
 
 function ContentCard(props = {}) {
   return (
@@ -9,15 +15,20 @@ function ContentCard(props = {}) {
       {/* Content */}
       <Box
         position="relative"
-        backgroundColor="material.regular"
-        borderRadius="l"
+        backgroundColor="neutral.gray6"
+        borderRadius="xl"
         overflow="hidden"
+        boxShadow="medium"
       >
         {/* Image */}
-        <img
-          alt={props.title}
-          src={props.image?.sources[0].uri ? props.image.sources[0].uri : null}
-          width="100%"
+
+        <Box
+          backgroundSize="cover"
+          paddingBottom="56.25%"
+          backgroundPosition="center"
+          backgroundImage={`url(${
+            props.image?.sources[0].uri ? props.image.sources[0].uri : null
+          })`}
         />
         {/* Masthead */}
         <Box
@@ -25,8 +36,9 @@ function ContentCard(props = {}) {
           background="material.regular"
           backdrop-filter="blur(64px)"
         >
-          <H3>{props.title}</H3>
-          <BodyText>{props.summary}</BodyText>
+          <SmallBodyText color="text.secondary">{props.subtitle}</SmallBodyText>
+          <H4>{props.title}</H4>
+          <SmallBodyText color="text.secondary">{props.summary}</SmallBodyText>
         </Box>
       </Box>
     </Box>

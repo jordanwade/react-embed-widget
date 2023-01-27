@@ -185,7 +185,7 @@ const titleTypeProp = ({ type }) => {
   switch (type) {
     default:
       return css`
-        color: ${themeGet('colors.text.primary')};
+        color: ${themeGet('colors.fill.paper')};
       `;
     case 'primary':
       return null;

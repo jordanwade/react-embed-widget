@@ -44,7 +44,7 @@ const FeatureFeed = (props) => {
     }
     default: {
       return (
-        <Box padding="40px" backgroundColor="#323233">
+        <Box padding="40px">
           <TabFeedProvider
             Component={Feed}
             options={{

@@ -6,6 +6,7 @@ import { TypeStyles } from '../Typography';
 
 const Longform = styled.div`
   ${TypeStyles.BodyText};
+  max-width: 700px;
 
   h1,
   h2,

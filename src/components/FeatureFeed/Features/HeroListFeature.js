@@ -37,7 +37,7 @@ function HeroListFeature(props = {}) {
       {/* Content */}
       <Box
         position="relative"
-        backgroundColor="material.regular"
+        backgroundColor="neutral.gray6"
         borderRadius="l"
         overflow="hidden"
       >
@@ -49,7 +49,7 @@ function HeroListFeature(props = {}) {
         {/* Masthead */}
         <Box
           padding="base"
-          background="material.regular"
+          backgroundColor="neutral.gray6"
           backdrop-filter="blur(64px)"
         >
           <H3>{props.feature.heroCard.title}</H3>
